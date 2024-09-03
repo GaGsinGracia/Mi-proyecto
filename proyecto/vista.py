@@ -17,6 +17,7 @@ from PIL import Image, ImageTk
 from modelo import Abmc
 from registro_errores import RegistroLogError
 from referencia.estilos_treeview import estilo_tree
+from referencia.referencia_treeview import referencia_tree
 
 # from referencia.diccionario import diccionario
 # from base_datos import ManejoBD
@@ -107,25 +108,17 @@ class Ventana:
             )
             entry.grid(row=row, column=2, pady=5, sticky="w" + "E")
 
-        self.etiqueta_criterios_tipo = Label(
-            self.marco,
-            text="Los tipos de clientes pueden ser: 'Agencia', 'Privado' o 'Traductor'.",
-            background="#35374B",
-            fg="white",
-            font=self.fuente_entrada,
-        )
-        self.etiqueta_criterios_tipo.grid(row=3, column=3, rowspan=1)
-        texto_etiqueta = "Los sitios web no deben incluir: 'http://',\n'https://' o una '/' al final de la URL."
+        texto_etiqueta = referencia_tree["texto_etiquetas"]
         self.etiqueta_criterios_sitios = Label(
             self.marco,
             text=texto_etiqueta,
-            background="#35374B",
-            fg="white",
+            background=estilo_tree["etiqueta_bg"],
+            fg=estilo_tree["etiqueta_fg"],
             font=self.fuente_entrada,
         )
         self.etiqueta_criterios_sitios.grid(row=7, column=3, rowspan=2)
 
-        self.fuente_botones = "Helvetica 11 bold"
+        self.fuente_botones = estilo_tree["fuente_botones"]
         botones = [
             (
                 "Agregar",
@@ -185,7 +178,7 @@ class Ventana:
                 self.marco,
                 font=self.fuente_botones,
                 text=text,
-                background="#78A083",
+                background=estilo_tree["fondo_botones"],
                 command=command,
             )
             boton.grid(row=row, column=col, padx=10, pady=10, sticky="w" + "E")
@@ -195,18 +188,20 @@ class Ventana:
         self.miestilo.theme_use("default")
         self.miestilo.configure(
             "miestilo.Treeview.Heading",
-            font=("Helvetica 12 bold"),
-            fontcolor="white",
-            background="#78A083",
+            font=estilo_tree["fuente_headings"],
+            fontcolor=estilo_tree["color_fuente"],
+            background=estilo_tree["fondo_headings"],
         )
         self.miestilo.configure(
             "Treeview",
-            font=("Helvetica 11"),
-            background="#4E5275",
-            foreground="#bababa",
-            fieldbackground="#D3D3D3",
+            font=estilo_tree["fuente_treeview"],
+            background=estilo_tree["fondo_treeview"],
+            foreground=estilo_tree["fore_treeview"],
+            fieldbackground=estilo_tree["field_treeview"],
         )
-        self.miestilo.map("Treeview", background=[("selected", "#35374B")])
+        self.miestilo.map(
+            "Treeview", background=[("selected", estilo_tree["seleccionado"])]
+        )
 
         self.tree = ttk.Treeview(
             self.marco,
@@ -226,13 +221,13 @@ class Ventana:
 
         columnas = [
             ("ID", 60, "n"),
-            ("Nombre", 60, "w"),
-            ("Apellido", 60, "w"),
-            ("Contacto", 150, "w"),
+            ("Nombre", 80, "w"),
+            ("Apellido", 80, "w"),
+            ("Contacto", 140, "w"),
             ("Correo-E", 230, "w"),
             ("Teléfono", 150, "w"),
-            ("Sitio Web", 180, "w"),
-            ("Otro Perfil", 180, "w"),
+            ("Sitio Web", 170, "w"),
+            ("Otro Perfil", 170, "w"),
         ]
 
         for col, width, anchor in columnas:
