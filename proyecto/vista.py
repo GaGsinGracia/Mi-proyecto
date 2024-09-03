@@ -16,6 +16,7 @@ import datetime
 from PIL import Image, ImageTk
 from modelo import Abmc
 from registro_errores import RegistroLogError
+from referencia.estilos_treeview import estilo_tree
 
 # from referencia.diccionario import diccionario
 # from base_datos import ManejoBD
@@ -36,17 +37,17 @@ class Ventana:
         self.root.wm_iconphoto(False, self.foto)
 
         # Usado para centrar los widgets:
-        self.marco = LabelFrame(self.root, bg="#35374B")
+        self.marco = LabelFrame(self.root, bg=estilo_tree["labelbg"])
 
         # Uso la etiqueta para como encabezado del programa
         self.titulo = Label(
             self.marco,
-            text="Administración de Clientes",
-            bg="#78A083",
-            fg="black",
-            height=1,
-            width=60,
-            font=("Helvetica 16 bold"),
+            text=estilo_tree["titulo_marco"],
+            bg=estilo_tree["titulo_bg"],
+            fg=estilo_tree["titulo_fg"],
+            height=estilo_tree["titulo_height"],
+            width=estilo_tree["titulo_width"],
+            font=estilo_tree["titulo_font"],
         )
         self.titulo.grid(
             row=0, column=1, columnspan=3, padx=1, pady=8, sticky="w" + "E"
