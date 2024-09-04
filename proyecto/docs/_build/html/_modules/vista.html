@@ -97,6 +97,7 @@
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageTk</span>
 <span class="kn">from</span> <span class="nn">modelo</span> <span class="kn">import</span> <span class="n">Abmc</span>
 <span class="kn">from</span> <span class="nn">registro_errores</span> <span class="kn">import</span> <span class="n">RegistroLogError</span>
+<span class="kn">from</span> <span class="nn">referencia.estilos_treeview</span> <span class="kn">import</span> <span class="n">estilo_tree</span>
 
 <span class="c1"># from referencia.diccionario import diccionario</span>
 <span class="c1"># from base_datos import ManejoBD</span>
@@ -119,17 +120,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">wm_iconphoto</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">foto</span><span class="p">)</span>
 
         <span class="c1"># Usado para centrar los widgets:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">marco</span> <span class="o">=</span> <span class="n">LabelFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#35374B&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marco</span> <span class="o">=</span> <span class="n">LabelFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;labelbg&quot;</span><span class="p">])</span>
 
         <span class="c1"># Uso la etiqueta para como encabezado del programa</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">titulo</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">marco</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Administración de Clientes&quot;</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#78A083&quot;</span><span class="p">,</span>
-            <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-            <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica 16 bold&quot;</span><span class="p">),</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;titulo_marco&quot;</span><span class="p">],</span>
+            <span class="n">bg</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;titulo_bg&quot;</span><span class="p">],</span>
+            <span class="n">fg</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;titulo_fg&quot;</span><span class="p">],</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;titulo_height&quot;</span><span class="p">],</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;titulo_width&quot;</span><span class="p">],</span>
+            <span class="n">font</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;titulo_font&quot;</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">titulo</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span> <span class="o">+</span> <span class="s2">&quot;E&quot;</span>

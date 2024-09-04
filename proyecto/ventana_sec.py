@@ -3,6 +3,7 @@ from tkinter import ttk
 from referencia.referencia_treeview import referencia_tree
 
 nombre_columnas = list(referencia_tree["nombre_columnas"])
+claves = list(referencia_tree["nombre_columnas"].keys())
 
 
 class TreeviewEdit(ttk.Treeview):
@@ -17,8 +18,20 @@ class TreeviewEdit(ttk.Treeview):
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.title("Treeview Example")
+    tree = ttk.Treeview(root)
 
-    tree = TreeviewEdit(root, columns=nombre_columnas)
-    tree.heading("#0", text="ID", anchor="w")
+    columns = list(referencia_tree["nombre_columnas"].keys())[1:]
+    tree["columns"] = columns
+
+    tree.column("#0", width=10)
+    tree.heading("#0", text="ID", anchor=tk.W)
+
+    for col in columns:
+        tree.column(col, anchor=tk.W, width=100)
+        tree.heading(col, text=col, anchor=tk.W)
+    tree.insert(parent="", index=tk.END, text="1")
+
     tree.pack(fill=tk.BOTH, expand=True)
+
     root.mainloop()

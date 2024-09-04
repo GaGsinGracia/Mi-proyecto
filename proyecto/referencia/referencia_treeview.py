@@ -1,6 +1,6 @@
 referencia_tree = {
     "nombre_columnas": {
-        "ID": "ID",
+        "#0": "ID",
         "NOMBRES": "NOMBRES",
         "APELLIDOS": "APELLIDOS",
         "CONTACTO": "CONTACTO",
@@ -14,5 +14,9 @@ referencia_tree = {
 
 if __name__ == "__main__":
 
-    print(list(referencia_tree["nombre_columnas"]))
-    print(list(referencia_tree["nombre_columnas"])[0])
+    # print(list(referencia_tree["nombre_columnas"]))
+    # print(list(referencia_tree["nombre_columnas"])[0])
+
+    claves = list(referencia_tree["nombre_columnas"].keys())
+    for i, clave in enumerate(claves):
+        print(clave)
