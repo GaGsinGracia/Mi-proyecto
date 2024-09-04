@@ -90,6 +90,28 @@ class ManejoBD:
         else:
             RES = showinfo("No hay una base de datos conectada.")
 
+    def existe_cliente(self, nombre_cliente, apellido_cliente):
+        """Busca si un cliente existe."""
+        if self.conexion:
+            try:
+                self.cursor.execute(
+                    "SELECT 1 FROM personas WHERE nombre_cliente = ? AND apellido_cliente = ?",
+                    (nombre_cliente, apellido_cliente),
+                )
+                return self.cursor.fetchone() is not None
+            except sqlite3.Error as e:
+                print(f"Error al buscar datos en la base de datos: {e}")
+                self.reg_errores = RegistroLogError(
+                    56, "ManejoBD", datetime.datetime.now(), e
+                )
+                self.reg_errores.registrar_error()
+        else:
+            RES = showinfo("No hay una base de datos conectada.")
+            self.reg_errores = RegistroLogError(
+                56, "ManejoBD", datetime.datetime.now(), e
+            )
+            self.reg_errores.registrar_error()
+
     def cargar_datos(self, solicitud):
         """Busca los datos de la base para usarlos."""
         if self.conexion:
@@ -108,22 +130,29 @@ class ManejoBD:
 
     def agregar_datos(self, nombre_tabla, datos):
         """Agrega datos en la tabla."""
-        if self.conexion:
-            try:
-                columnas = ", ".join(datos.keys())
-                lugares = ", ".join("?" for _ in datos)
-                sql = f"INSERT INTO {nombre_tabla} ({columnas}) VALUES ({lugares})"
-                self.cursor.execute(sql, tuple(datos.values()))
-                self.conexion.commit()
-                print(f"Datos agregada a la tabla '{nombre_tabla}' correctamente.")
-            except sqlite3.Error as e:
-                print(f"Error al agregar datos: {e}")
-                self.reg_errores = RegistroLogError(
-                    117, "ManejoBD", datetime.datetime.now(), e
-                )
-                self.reg_errores.registrar_error()
+        print(datos, type(datos))
+        if self.existe_cliente(datos["nombre_cliente"], datos["apellido_cliente"]):
+            RES = showinfo(
+                "Error",
+                f"El cliente {datos['nombre_cliente']} {datos['apellido_cliente']} ya existe",
+            )
         else:
-            print("No hay conexión con la base de datos.")
+            if self.conexion:
+                try:
+                    columnas = ", ".join(datos.keys())
+                    lugares = ", ".join("?" for _ in datos)
+                    sql = f"INSERT INTO {nombre_tabla} ({columnas}) VALUES ({lugares})"
+                    self.cursor.execute(sql, tuple(datos.values()))
+                    self.conexion.commit()
+                    print(f"Datos agregada a la tabla '{nombre_tabla}' correctamente.")
+                except sqlite3.Error as e:
+                    print(f"Error al agregar datos: {e}")
+                    self.reg_errores = RegistroLogError(
+                        117, "ManejoBD", datetime.datetime.now(), e
+                    )
+                    self.reg_errores.registrar_error()
+            else:
+                print("No hay conexión con la base de datos.")
 
     def borrar_datos(self, nombre_tabla, condicion):
         """Borra datos desde la tabla especificada."""
