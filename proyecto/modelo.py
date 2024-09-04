@@ -23,14 +23,17 @@ class Abmc:
         self.base_datos = ManejoBD()
         self.base_datos.crear_db(self.nombre_bd)
         self.base_datos.crear_tabla(self.nombre_tabla, self.esquema)
-        # print(self.nombre_bd)
-        # print(self.esquema)
+
         if not self.base_datos.tiene_datos(self.nombre_tabla):
             self.base_datos.conectar_bd(self.nombre_bd)
             self.agregar_cliente_diccionario(diccionario)
 
     def importar_datos(self, tree):
-        """Usado para importar datos desde un archivo shelve."""
+        """Usado para importar datos desde un archivo shelve.
+
+        Args:
+            tree (Tkinter Treeview): tree.
+        """
 
         diccionario2 = ""
         try:
@@ -57,7 +60,11 @@ class Abmc:
             self.reg_errores.registrar_error()
 
     def agregar_cliente_diccionario(self, diccionario):
-        """Usado para agregar datos a la base de datos cuando está vacía."""
+        """Usado para agregar datos a la base de datos cuando está vacía.
+
+        Args:
+            diccionario (dict): diccionario del archivo dictionario.py.
+        """
         for i, datos in enumerate(diccionario.values()):
             self.base_datos.agregar_datos("personas", datos)
 
@@ -73,7 +80,19 @@ class Abmc:
         var_sitio,
         var_perfil,
     ):
-        """Alta de clientes en la base de datos."""
+        """Alta de clientes en la base de datos.
+
+        Args:
+            tree (Tkinter Treeview): tree.
+            var_indice (int): Índice.
+            var_nombre_cliente (str): Nombre del cliente.
+            var_apellido_cliente (str): Apellido del cliente.
+            var_contacto (str): Nombre de contacto.
+            var_correo_electronico (str): Correo electronico.
+            var_telefono (str): Número de telefono.
+            var_sitio (str): Url Sitio.
+            var_perfil (str): Url Perfil.
+        """
 
         accion = "agregaron"
 
@@ -121,7 +140,11 @@ class Abmc:
                 res = showinfo("¡Atención!", "No se agregó el cliente")
 
     def borrar(self, tree):
-        """Borra cliente de la base de datos."""
+        """Borra cliente de la base de datos.
+
+        Args:
+            tree (Tkinter Treeview): tree.
+        """
 
         item = tree.focus()
         val_seleccionados = tree.selection()
@@ -161,8 +184,20 @@ class Abmc:
         var_sitio,
         var_perfil,
     ):
-        """Modifica los datos de un cliente específico."""
+        """Modifica los datos de un cliente específico.
 
+        Args:
+            tree (Tkinter Treeview): tree.
+            var_indice (int): Índice.
+            var_nombre_cliente (str): Nombre del cliente.
+            var_apellido_cliente (str): Apellido del cliente.
+            var_contacto (str): Nombre de contacto.
+            var_correo_electronico (str): Correo electronico.
+            var_telefono (str): Número de telefono.
+            var_sitio (str): Url Sitio.
+            var_perfil (str): Url Perfil.
+        """
+        print("var_indice:", type(var_indice))
         item = tree.focus()
         valor = tree.selection()
         accion = "modificaron"
@@ -216,7 +251,11 @@ class Abmc:
             # cargar_treeview(tree)
 
     def cargar_treeview(self, tree):
-        """Llena el Treeview con los datos de la base de datos."""
+        """Carga los datos de la base de datos en el treeview.
+
+        Args:
+            tree (Tkinter Treeview): tree.
+        """
 
         # global indice
         self.base_datos.conectar_bd(self.nombre_bd)
@@ -229,7 +268,11 @@ class Abmc:
         self,
         tree,
     ):
-        """Vacía los datos de los widget de entrada."""
+        """Vacía los datos de los widget de entrada.
+
+        Args:
+            tree (Tkinter Treeview): tree.
+        """
 
         self.ventana.vaciar()
         # self.entry.delete(0, "end")

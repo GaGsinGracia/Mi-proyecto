@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>modelo module &mdash; documentación de UTN - 0.0.1</title>
+  <title>Módulo modelo &mdash; documentación de UTN - 0.0.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="registro_errores module" href="registro_errores.html" />
-    <link rel="prev" title="base_datos module" href="base_datos.html" /> 
+    <link rel="next" title="Módulo registro_errores" href="registro_errores.html" />
+    <link rel="prev" title="Módulo base_datos" href="base_datos.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,8 +50,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="base_datos.html">base_datos module</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">modelo module</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="base_datos.html">Módulo base_datos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo modelo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#modelo.Abmc"><code class="docutils literal notranslate"><span class="pre">Abmc</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modelo.Abmc.actualizar"><code class="docutils literal notranslate"><span class="pre">Abmc.actualizar()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#modelo.Abmc.agregar_cliente_diccionario"><code class="docutils literal notranslate"><span class="pre">Abmc.agregar_cliente_diccionario()</span></code></a></li>
@@ -64,9 +64,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="registro_errores.html">registro_errores module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validacion.html">validacion module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vista.html">vista module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registro_errores.html">Módulo registro_errores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validacion.html">Módulo validacion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">Módulo vista</a></li>
 </ul>
 
         </div>
@@ -83,7 +83,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">modelo module</li>
+      <li class="breadcrumb-item active">Módulo modelo</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modelo.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
       </li>
@@ -94,7 +94,7 @@
            <div itemprop="articleBody">
              
   <section id="module-modelo">
-<span id="modelo-module"></span><h1>modelo module<a class="headerlink" href="#module-modelo" title="Link to this heading"></a></h1>
+<span id="modelo-module"></span><h1>Módulo modelo<a class="headerlink" href="#module-modelo" title="Link to this heading"></a></h1>
 <p>Modelo CRUD de la base de datos.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelo.Abmc">
@@ -105,42 +105,86 @@
 <dt class="sig sig-object py" id="modelo.Abmc.actualizar">
 <span class="sig-name descname"><span class="pre">actualizar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_indice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre_cliente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido_cliente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_contacto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_correo_electronico</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_telefono</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sitio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_perfil</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.actualizar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.actualizar" title="Link to this definition"></a></dt>
 <dd><p>Modifica los datos de un cliente específico.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (Tkinter Treeview): tree.
+var_indice (int): Índice.
+var_nombre_cliente (str): Nombre del cliente.
+var_apellido_cliente (str): Apellido del cliente.
+var_contacto (str): Nombre de contacto.
+var_correo_electronico (str): Correo electronico.
+var_telefono (str): Número de telefono.
+var_sitio (str): Url Sitio.
+var_perfil (str): Url Perfil.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abmc.agregar_cliente_diccionario">
 <span class="sig-name descname"><span class="pre">agregar_cliente_diccionario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diccionario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.agregar_cliente_diccionario"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.agregar_cliente_diccionario" title="Link to this definition"></a></dt>
 <dd><p>Usado para agregar datos a la base de datos cuando está vacía.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>diccionario (dict): diccionario del archivo dictionario.py.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abmc.alta_cliente">
 <span class="sig-name descname"><span class="pre">alta_cliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_indice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_nombre_cliente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_apellido_cliente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_contacto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_correo_electronico</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_telefono</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_sitio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_perfil</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.alta_cliente"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.alta_cliente" title="Link to this definition"></a></dt>
 <dd><p>Alta de clientes en la base de datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (Tkinter Treeview): tree.
+var_indice (int): Índice.
+var_nombre_cliente (str): Nombre del cliente.
+var_apellido_cliente (str): Apellido del cliente.
+var_contacto (str): Nombre de contacto.
+var_correo_electronico (str): Correo electronico.
+var_telefono (str): Número de telefono.
+var_sitio (str): Url Sitio.
+var_perfil (str): Url Perfil.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abmc.borrar">
 <span class="sig-name descname"><span class="pre">borrar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.borrar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.borrar" title="Link to this definition"></a></dt>
 <dd><p>Borra cliente de la base de datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (Tkinter Treeview): tree.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abmc.cargar_treeview">
 <span class="sig-name descname"><span class="pre">cargar_treeview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.cargar_treeview"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.cargar_treeview" title="Link to this definition"></a></dt>
-<dd><p>Llena el Treeview con los datos de la base de datos.</p>
+<dd><p>Carga los datos de la base de datos en el treeview.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (Tkinter Treeview): tree.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abmc.importar_datos">
 <span class="sig-name descname"><span class="pre">importar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.importar_datos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.importar_datos" title="Link to this definition"></a></dt>
 <dd><p>Usado para importar datos desde un archivo shelve.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (Tkinter Treeview): tree.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Abmc.vaciar_todo">
 <span class="sig-name descname"><span class="pre">vaciar_todo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.vaciar_todo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.vaciar_todo" title="Link to this definition"></a></dt>
 <dd><p>Vacía los datos de los widget de entrada.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (Tkinter Treeview): tree.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -151,8 +195,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="base_datos.html" class="btn btn-neutral float-left" title="base_datos module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="registro_errores.html" class="btn btn-neutral float-right" title="registro_errores module" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="base_datos.html" class="btn btn-neutral float-left" title="Módulo base_datos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="registro_errores.html" class="btn btn-neutral float-right" title="Módulo registro_errores" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

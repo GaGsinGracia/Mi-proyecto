@@ -23,7 +23,14 @@ class ValidacionCampos:
         )
 
     def validar_nombres(self, campo_nombre):
-        """Valida los nombres y contactos."""
+        """Valida los nombres y contactos.
+
+        Args:
+            campo_nombre (str): nombre, apellido o contacto.
+
+        Returns:
+            bool: valido o no.
+        """
         patron_nombre = r"^[A-Za-zñáéíóúÑÁÉÍÓÚ]+(?:[ _-][A-Za-zñáéíóúÑÁÉÍÓÚ]+)*$"
         if bool(re.match(patron_nombre, campo_nombre)):
             return True
@@ -34,10 +41,10 @@ class ValidacionCampos:
         """Valida los correos electronicos.
 
         Args:
-            var_correo_electronico (str): correo electrónico
+            var_correo_electronico (str): correo electrónico.
 
         Devuelve:
-            bool: valido o no
+            bool: valido o no.
         """
 
         patron_correo = (
@@ -49,14 +56,14 @@ class ValidacionCampos:
             return False
 
     def sitios_web(self, campo_sitio, nombre_campo):
-        """Valida los campos de sitio web y perfil
+        """Valida los campos de sitio web y perfil.
 
         Args:
-            campo_sitio (str): URL sitio web
-            nombre_campo (str): Nombre del campo a validar
+            campo_sitio (str): URL sitio web.
+            nombre_campo (str): Nombre del campo a validar.
 
         Devuelve:
-            bool: validado o no
+            bool: validado o no.
         """
         try:
             sitio_bol = False
@@ -88,13 +95,13 @@ class ValidacionCampos:
     # def validar_sitio(self, sitio):
 
     def validar_telefono(self, telefono):
-        """Valida el campo del teléfono
+        """Valida el campo del teléfono.
 
         Args:
-            telefono (str): telefono
+            telefono (str): telefono.
 
         Devuelve:
-            bool: validado o no
+            bool: validado o no.
         """
         try:
             patron_telefono = r"^\+\d{8,16}$"
@@ -119,22 +126,22 @@ class ValidacionCampos:
         var_perfil,
         tree,
     ):
-        """Validación de campos
+        """Validación de campos.
 
         Args:
-            accion (str): Origen de la acción
-            var_indice (str): Indice
-            var_nombre_cliente (str): Nombre cliente
-            var_apellido_cliente (_str): Apellido cliente
-            var_contacto (str): Persona de contacto
-            var_correo_electronico (str): Correo electrónico
-            var_telefono (str): Número de teléfono
-            var_sitio (str): Sitio web
-            var_perfil (str): Sitio web secundario
-            tree (tree): Treeview
+            accion (str): Origen de la acción.
+            var_indice (str): Indice.
+            var_nombre_cliente (str): Nombre cliente.
+            var_apellido_cliente (_str): Apellido cliente.
+            var_contacto (str): Persona de contacto.
+            var_correo_electronico (str): Correo electrónico.
+            var_telefono (str): Número de teléfono.
+            var_sitio (str): Sitio web.
+            var_perfil (str): Sitio web secundario.
+            tree (tree): Treeview.
 
         Devuelve:
-            bool: validado o no
+            bool: validado o no.
         """
 
         id = var_indice

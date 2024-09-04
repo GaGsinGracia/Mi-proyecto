@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>base_datos module &mdash; documentación de UTN - 0.0.1</title>
+  <title>Módulo base_datos &mdash; documentación de UTN - 0.0.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="modelo module" href="modelo.html" />
+    <link rel="next" title="Módulo modelo" href="modelo.html" />
     <link rel="prev" title="Documentación UTN" href="index.html" /> 
 </head>
 
@@ -50,7 +50,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">base_datos module</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo base_datos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#base_datos.ManejoBD"><code class="docutils literal notranslate"><span class="pre">ManejoBD</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#base_datos.ManejoBD.actualizar_datos"><code class="docutils literal notranslate"><span class="pre">ManejoBD.actualizar_datos()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#base_datos.ManejoBD.agregar_datos"><code class="docutils literal notranslate"><span class="pre">ManejoBD.agregar_datos()</span></code></a></li>
@@ -66,10 +66,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="modelo.html">modelo module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="registro_errores.html">registro_errores module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validacion.html">validacion module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vista.html">vista module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelo.html">Módulo modelo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registro_errores.html">Módulo registro_errores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validacion.html">Módulo validacion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">Módulo vista</a></li>
 </ul>
 
         </div>
@@ -86,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">base_datos module</li>
+      <li class="breadcrumb-item active">Módulo base_datos</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/base_datos.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
       </li>
@@ -97,7 +97,7 @@
            <div itemprop="articleBody">
              
   <section id="module-base_datos">
-<span id="base-datos-module"></span><h1>base_datos module<a class="headerlink" href="#module-base_datos" title="Link to this heading"></a></h1>
+<span id="base-datos-module"></span><h1>Módulo base_datos<a class="headerlink" href="#module-base_datos" title="Link to this heading"></a></h1>
 <p>Clase con funciones de CRUD con las base de datos.
 Y otras funciones de conexión.</p>
 <dl class="py class">
@@ -109,24 +109,44 @@ Y otras funciones de conexión.</p>
 <dt class="sig sig-object py" id="base_datos.ManejoBD.actualizar_datos">
 <span class="sig-name descname"><span class="pre">actualizar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_tabla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condicion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.actualizar_datos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.actualizar_datos" title="Link to this definition"></a></dt>
 <dd><p>Actualiza datos en la tabla.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_tabla (str): nombre de la tabla.
+datos (dict): diccionario con los datos a actualizar.
+condicion (str): cadena con el id.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.agregar_datos">
 <span class="sig-name descname"><span class="pre">agregar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_tabla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.agregar_datos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.agregar_datos" title="Link to this definition"></a></dt>
-<dd><p>Agrega datos en la tabla.</p>
+<dd><p>Agrega datos a una tabla en la base de datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_tabla (str): tabla de la bd.
+datos (dict): diccionario con los datos a agregar.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.borrar_datos">
 <span class="sig-name descname"><span class="pre">borrar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_tabla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condicion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.borrar_datos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.borrar_datos" title="Link to this definition"></a></dt>
 <dd><p>Borra datos desde la tabla especificada.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_tabla (str): nombre de la tabla.
+condicion (str): indice para borrar datos.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.cargar_datos">
 <span class="sig-name descname"><span class="pre">cargar_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solicitud</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.cargar_datos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.cargar_datos" title="Link to this definition"></a></dt>
 <dd><p>Busca los datos de la base para usarlos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>solicitud (str): datos para la solicitud.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -139,30 +159,56 @@ Y otras funciones de conexión.</p>
 <dt class="sig sig-object py" id="base_datos.ManejoBD.conectar_bd">
 <span class="sig-name descname"><span class="pre">conectar_bd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.conectar_bd"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.conectar_bd" title="Link to this definition"></a></dt>
 <dd><p>Conecta a una base de datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_bd (str): nombre de la base de datos a conectar.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.crear_db">
 <span class="sig-name descname"><span class="pre">crear_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.crear_db"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.crear_db" title="Link to this definition"></a></dt>
 <dd><p>Crea una base de datos nueva.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_bd (str): nombre de la base de datos a crear.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.crear_tabla">
 <span class="sig-name descname"><span class="pre">crear_tabla</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_tabla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">esquema</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.crear_tabla"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.crear_tabla" title="Link to this definition"></a></dt>
 <dd><p>Crea una tabla.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_tabla (str): nombre de la tabla a crear.
+esquema (str): datos para la solicitud.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.existe_cliente">
 <span class="sig-name descname"><span class="pre">existe_cliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_cliente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido_cliente</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.existe_cliente"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.existe_cliente" title="Link to this definition"></a></dt>
-<dd><p>Busca si un cliente existe.</p>
+<dd><p>Busca si ya existe un cliente con el mismo nombre y apellido.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_cliente (str): nombre del cliente a buscar.
+apellido_cliente (str): apellido del cliente a buscar.</p>
+</dd>
+<dt>Devuelve:</dt><dd><p>bool: True si el cliente existe, False en caso contrario.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="base_datos.ManejoBD.tiene_datos">
 <span class="sig-name descname"><span class="pre">tiene_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_tabla</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_datos.html#ManejoBD.tiene_datos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_datos.ManejoBD.tiene_datos" title="Link to this definition"></a></dt>
 <dd><p>Busca si la tabla tiene datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nombre_tabla (str): nombre de la tabla a buscar.</p>
+</dd>
+<dt>Devuelve:</dt><dd><p>bool: True si la tabla tiene datos, False en caso contrario.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -174,7 +220,7 @@ Y otras funciones de conexión.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
         <a href="index.html" class="btn btn-neutral float-left" title="Documentación UTN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="modelo.html" class="btn btn-neutral float-right" title="modelo module" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelo.html" class="btn btn-neutral float-right" title="Módulo modelo" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

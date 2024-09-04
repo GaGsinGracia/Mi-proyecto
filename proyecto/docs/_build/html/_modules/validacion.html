@@ -108,7 +108,14 @@
 <div class="viewcode-block" id="ValidacionCampos.validar_nombres">
 <a class="viewcode-back" href="../validacion.html#validacion.ValidacionCampos.validar_nombres">[documentos]</a>
     <span class="k">def</span> <span class="nf">validar_nombres</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">campo_nombre</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida los nombres y contactos.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida los nombres y contactos.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            campo_nombre (str): nombre, apellido o contacto.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: valido o no.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">patron_nombre</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^[A-Za-zñáéíóúÑÁÉÍÓÚ]+(?:[ _-][A-Za-zñáéíóúÑÁÉÍÓÚ]+)*$&quot;</span>
         <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">patron_nombre</span><span class="p">,</span> <span class="n">campo_nombre</span><span class="p">)):</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -122,10 +129,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida los correos electronicos.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            var_correo_electronico (str): correo electrónico</span>
+<span class="sd">            var_correo_electronico (str): correo electrónico.</span>
 
 <span class="sd">        Devuelve:</span>
-<span class="sd">            bool: valido o no</span>
+<span class="sd">            bool: valido o no.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">patron_correo</span> <span class="o">=</span> <span class="p">(</span>
@@ -140,14 +147,14 @@
 <div class="viewcode-block" id="ValidacionCampos.sitios_web">
 <a class="viewcode-back" href="../validacion.html#validacion.ValidacionCampos.sitios_web">[documentos]</a>
     <span class="k">def</span> <span class="nf">sitios_web</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">campo_sitio</span><span class="p">,</span> <span class="n">nombre_campo</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida los campos de sitio web y perfil</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida los campos de sitio web y perfil.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            campo_sitio (str): URL sitio web</span>
-<span class="sd">            nombre_campo (str): Nombre del campo a validar</span>
+<span class="sd">            campo_sitio (str): URL sitio web.</span>
+<span class="sd">            nombre_campo (str): Nombre del campo a validar.</span>
 
 <span class="sd">        Devuelve:</span>
-<span class="sd">            bool: validado o no</span>
+<span class="sd">            bool: validado o no.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">sitio_bol</span> <span class="o">=</span> <span class="kc">False</span>
@@ -182,13 +189,13 @@
 <div class="viewcode-block" id="ValidacionCampos.validar_telefono">
 <a class="viewcode-back" href="../validacion.html#validacion.ValidacionCampos.validar_telefono">[documentos]</a>
     <span class="k">def</span> <span class="nf">validar_telefono</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telefono</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida el campo del teléfono</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Valida el campo del teléfono.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            telefono (str): telefono</span>
+<span class="sd">            telefono (str): telefono.</span>
 
 <span class="sd">        Devuelve:</span>
-<span class="sd">            bool: validado o no</span>
+<span class="sd">            bool: validado o no.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">patron_telefono</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\+\d{8,16}$&quot;</span>
@@ -216,22 +223,22 @@
         <span class="n">var_perfil</span><span class="p">,</span>
         <span class="n">tree</span><span class="p">,</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validación de campos</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validación de campos.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            accion (str): Origen de la acción</span>
-<span class="sd">            var_indice (str): Indice</span>
-<span class="sd">            var_nombre_cliente (str): Nombre cliente</span>
-<span class="sd">            var_apellido_cliente (_str): Apellido cliente</span>
-<span class="sd">            var_contacto (str): Persona de contacto</span>
-<span class="sd">            var_correo_electronico (str): Correo electrónico</span>
-<span class="sd">            var_telefono (str): Número de teléfono</span>
-<span class="sd">            var_sitio (str): Sitio web</span>
-<span class="sd">            var_perfil (str): Sitio web secundario</span>
-<span class="sd">            tree (tree): Treeview</span>
+<span class="sd">            accion (str): Origen de la acción.</span>
+<span class="sd">            var_indice (str): Indice.</span>
+<span class="sd">            var_nombre_cliente (str): Nombre cliente.</span>
+<span class="sd">            var_apellido_cliente (_str): Apellido cliente.</span>
+<span class="sd">            var_contacto (str): Persona de contacto.</span>
+<span class="sd">            var_correo_electronico (str): Correo electrónico.</span>
+<span class="sd">            var_telefono (str): Número de teléfono.</span>
+<span class="sd">            var_sitio (str): Sitio web.</span>
+<span class="sd">            var_perfil (str): Sitio web secundario.</span>
+<span class="sd">            tree (tree): Treeview.</span>
 
 <span class="sd">        Devuelve:</span>
-<span class="sd">            bool: validado o no</span>
+<span class="sd">            bool: validado o no.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">id</span> <span class="o">=</span> <span class="n">var_indice</span>

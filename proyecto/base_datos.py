@@ -17,7 +17,14 @@ class ManejoBD:
         self.cursor = None
 
     def tiene_datos(self, nombre_tabla):
-        """Busca si la tabla tiene datos."""
+        """Busca si la tabla tiene datos.
+
+        Args:
+            nombre_tabla (str): nombre de la tabla a buscar.
+
+        Devuelve:
+            bool: True si la tabla tiene datos, False en caso contrario.
+        """
         if self.conexion:
             try:
                 self.cursor.execute(f"SELECT COUNT(*) FROM {nombre_tabla}")
@@ -34,7 +41,11 @@ class ManejoBD:
         return False
 
     def crear_db(self, nombre_bd):
-        """Crea una base de datos nueva."""
+        """Crea una base de datos nueva.
+
+        Args:
+            nombre_bd (str): nombre de la base de datos a crear.
+        """
         try:
 
             self.nombre_bd = nombre_bd
@@ -48,7 +59,12 @@ class ManejoBD:
             self.reg_errores.registrar_error()
 
     def crear_tabla(self, nombre_tabla, esquema):
-        """Crea una tabla."""
+        """Crea una tabla.
+
+        Args:
+            nombre_tabla (str): nombre de la tabla a crear.
+            esquema (str): datos para la solicitud.
+        """
         if self.conexion:
             try:
                 self.cursor.execute(
@@ -68,7 +84,11 @@ class ManejoBD:
             RES = showinfo("No se creo la base de datos.")
 
     def conectar_bd(self, nombre_bd):
-        """Conecta a una base de datos."""
+        """Conecta a una base de datos.
+
+        Args:
+            nombre_bd (str): nombre de la base de datos a conectar.
+        """
         try:
             self.conexion = sqlite3.connect(nombre_bd)
             self.cursor = self.conexion.cursor()
@@ -82,6 +102,7 @@ class ManejoBD:
 
     def cerrar_db(self):
         """Cierra la conexión con la base de datos."""
+
         if self.conexion:
             self.conexion.close()
             print(f"Se cerró la base de datos '{self.nombre_bd}'.")
@@ -89,7 +110,15 @@ class ManejoBD:
             RES = showinfo("No hay una base de datos conectada.")
 
     def existe_cliente(self, nombre_cliente, apellido_cliente):
-        """Busca si existe un cliente."""
+        """Busca si ya existe un cliente con el mismo nombre y apellido.
+
+        Args:
+            nombre_cliente (str): nombre del cliente a buscar.
+            apellido_cliente (str): apellido del cliente a buscar.
+
+        Devuelve:
+            bool: True si el cliente existe, False en caso contrario.
+        """
         if self.conexion:
             try:
                 self.cursor.execute(
@@ -111,7 +140,12 @@ class ManejoBD:
             self.reg_errores.registrar_error()
 
     def cargar_datos(self, solicitud):
-        """Busca los datos de la base para usarlos."""
+        """Busca los datos de la base para usarlos.
+
+        Args:
+            solicitud (str): datos para la solicitud.
+        """
+
         if self.conexion:
             try:
                 self.cursor.execute(solicitud)
@@ -127,7 +161,12 @@ class ManejoBD:
         return []
 
     def agregar_datos(self, nombre_tabla, datos):
-        """Agrega datos en la tabla."""
+        """Agrega datos a una tabla en la base de datos.
+
+        Args:
+            nombre_tabla (str): tabla de la bd.
+            datos (dict): diccionario con los datos a agregar.
+        """
 
         if self.existe_cliente(datos["nombre_cliente"], datos["apellido_cliente"]):
             RES = showinfo(
@@ -153,7 +192,13 @@ class ManejoBD:
                 print("No hay conexión con la base de datos.")
 
     def borrar_datos(self, nombre_tabla, condicion):
-        """Borra datos desde la tabla especificada."""
+        """Borra datos desde la tabla especificada.
+
+        Args:
+            nombre_tabla (str): nombre de la tabla.
+            condicion (str): indice para borrar datos.
+        """
+
         if self.conexion:
             try:
                 sql = f"DELETE FROM {nombre_tabla} WHERE id = ?"
@@ -170,7 +215,14 @@ class ManejoBD:
             print("No hay una base conectada.")
 
     def actualizar_datos(self, nombre_tabla, datos, condicion):
-        """Actualiza datos en la tabla."""
+        """Actualiza datos en la tabla.
+
+        Args:
+            nombre_tabla (str): nombre de la tabla.
+            datos (dict): diccionario con los datos a actualizar.
+            condicion (str): cadena con el id.
+        """
+
         if self.conexion:
             try:
                 actualizado = ", ".join(f"{col} = ?" for col in datos.keys())

@@ -291,7 +291,7 @@ class Ventana:
         """Ordena el Treeview al hacer 2 veces click en el encabezado elegido.
 
         Args:
-            col (row): columna del treeview
+            col (row): columna del treeview.
         """
 
         # Obtener índice de la columna
