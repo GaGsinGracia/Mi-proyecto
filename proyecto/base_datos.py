@@ -128,7 +128,7 @@ class ManejoBD:
 
     def agregar_datos(self, nombre_tabla, datos):
         """Agrega datos en la tabla."""
-        print(datos, type(datos))
+
         if self.existe_cliente(datos["nombre_cliente"], datos["apellido_cliente"]):
             RES = showinfo(
                 "Error",
