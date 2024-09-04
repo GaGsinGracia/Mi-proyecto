@@ -98,6 +98,7 @@
 <span class="kn">from</span> <span class="nn">modelo</span> <span class="kn">import</span> <span class="n">Abmc</span>
 <span class="kn">from</span> <span class="nn">registro_errores</span> <span class="kn">import</span> <span class="n">RegistroLogError</span>
 <span class="kn">from</span> <span class="nn">referencia.estilos_treeview</span> <span class="kn">import</span> <span class="n">estilo_tree</span>
+<span class="kn">from</span> <span class="nn">referencia.referencia_treeview</span> <span class="kn">import</span> <span class="n">referencia_tree</span>
 
 <span class="c1"># from referencia.diccionario import diccionario</span>
 <span class="c1"># from base_datos import ManejoBD</span>
@@ -190,25 +191,17 @@
             <span class="p">)</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span> <span class="o">+</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">etiqueta_criterios_tipo</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">marco</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Los tipos de clientes pueden ser: &#39;Agencia&#39;, &#39;Privado&#39; o &#39;Traductor&#39;.&quot;</span><span class="p">,</span>
-            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#35374B&quot;</span><span class="p">,</span>
-            <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
-            <span class="n">font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fuente_entrada</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">etiqueta_criterios_tipo</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">texto_etiqueta</span> <span class="o">=</span> <span class="s2">&quot;Los sitios web no deben incluir: &#39;http://&#39;,</span><span class="se">\n</span><span class="s2">&#39;https://&#39; o una &#39;/&#39; al final de la URL.&quot;</span>
+        <span class="n">texto_etiqueta</span> <span class="o">=</span> <span class="n">referencia_tree</span><span class="p">[</span><span class="s2">&quot;texto_etiquetas&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">etiqueta_criterios_sitios</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">marco</span><span class="p">,</span>
             <span class="n">text</span><span class="o">=</span><span class="n">texto_etiqueta</span><span class="p">,</span>
-            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#35374B&quot;</span><span class="p">,</span>
-            <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;etiqueta_bg&quot;</span><span class="p">],</span>
+            <span class="n">fg</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;etiqueta_fg&quot;</span><span class="p">],</span>
             <span class="n">font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fuente_entrada</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">etiqueta_criterios_sitios</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">fuente_botones</span> <span class="o">=</span> <span class="s2">&quot;Helvetica 11 bold&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fuente_botones</span> <span class="o">=</span> <span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fuente_botones&quot;</span><span class="p">]</span>
         <span class="n">botones</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">(</span>
                 <span class="s2">&quot;Agregar&quot;</span><span class="p">,</span>
@@ -268,7 +261,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">marco</span><span class="p">,</span>
                 <span class="n">font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fuente_botones</span><span class="p">,</span>
                 <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
-                <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#78A083&quot;</span><span class="p">,</span>
+                <span class="n">background</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fondo_botones&quot;</span><span class="p">],</span>
                 <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">boton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span> <span class="o">+</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
@@ -278,18 +271,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">miestilo</span><span class="o">.</span><span class="n">theme_use</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">miestilo</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
             <span class="s2">&quot;miestilo.Treeview.Heading&quot;</span><span class="p">,</span>
-            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica 12 bold&quot;</span><span class="p">),</span>
-            <span class="n">fontcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
-            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#78A083&quot;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fuente_headings&quot;</span><span class="p">],</span>
+            <span class="n">fontcolor</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;color_fuente&quot;</span><span class="p">],</span>
+            <span class="n">background</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fondo_headings&quot;</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">miestilo</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
             <span class="s2">&quot;Treeview&quot;</span><span class="p">,</span>
-            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica 11&quot;</span><span class="p">),</span>
-            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#4E5275&quot;</span><span class="p">,</span>
-            <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;#bababa&quot;</span><span class="p">,</span>
-            <span class="n">fieldbackground</span><span class="o">=</span><span class="s2">&quot;#D3D3D3&quot;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fuente_treeview&quot;</span><span class="p">],</span>
+            <span class="n">background</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fondo_treeview&quot;</span><span class="p">],</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;fore_treeview&quot;</span><span class="p">],</span>
+            <span class="n">fieldbackground</span><span class="o">=</span><span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;field_treeview&quot;</span><span class="p">],</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">miestilo</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">&quot;Treeview&quot;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;#35374B&quot;</span><span class="p">)])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">miestilo</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="s2">&quot;Treeview&quot;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="n">estilo_tree</span><span class="p">[</span><span class="s2">&quot;seleccionado&quot;</span><span class="p">])]</span>
+        <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">marco</span><span class="p">,</span>
@@ -309,13 +304,13 @@
 
         <span class="n">columnas</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;Apellido&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;Contacto&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;Apellido&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;Contacto&quot;</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
             <span class="p">(</span><span class="s2">&quot;Correo-E&quot;</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
             <span class="p">(</span><span class="s2">&quot;Teléfono&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;Sitio Web&quot;</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;Otro Perfil&quot;</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;Sitio Web&quot;</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;Otro Perfil&quot;</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>
         <span class="p">]</span>
 
         <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">anchor</span> <span class="ow">in</span> <span class="n">columnas</span><span class="p">:</span>

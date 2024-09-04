@@ -15,8 +15,6 @@ class ManejoBD:
         self.nombre_bd = nombre_bd
         self.conexion = None
         self.cursor = None
-        # self.reg_errores = RegistroLogError()
-        # self.nombre_tabla = "personas"
 
     def tiene_datos(self, nombre_tabla):
         """Busca si la tabla tiene datos."""
@@ -56,7 +54,7 @@ class ManejoBD:
                 self.cursor.execute(
                     f"CREATE TABLE IF NOT EXISTS {nombre_tabla} ({esquema})"
                 )
-                # print(f"CREATE TABLE IF NOT EXISTS {nombre_tabla} ({esquema})")
+
                 self.conexion.commit()
                 print(f"La tabla '{nombre_tabla}' se creó correctamente.")
             except sqlite3.Error as e:
@@ -91,7 +89,7 @@ class ManejoBD:
             RES = showinfo("No hay una base de datos conectada.")
 
     def existe_cliente(self, nombre_cliente, apellido_cliente):
-        """Busca si un cliente existe."""
+        """Busca si existe un cliente."""
         if self.conexion:
             try:
                 self.cursor.execute(
